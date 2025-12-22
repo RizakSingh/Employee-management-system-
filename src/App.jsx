@@ -2,25 +2,23 @@ import React, { useContext, useEffect, useState } from "react";
 import Login from "./components/auth/login";
 import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard";
 import AdminDashBoard from "./components/Dashboard/AdminDashBoard";
-import { AuthContext } from "./context/AuthProvider";
+
 import AuthProvider from "./context/AuthProvider";
 
 const AppContent = () => {
   const [userRole, setUserRole] = useState(null);
   const [loggedInEmployee, setLoggedInEmployee] = useState(null);
 
-  const authData = useContext(AuthContext);
 
-
-  // useEffect(() => {
-  //   const savedUser = JSON.parse(localStorage.getItem("loggedInUser"));
-  //   if (savedUser?.role) {
-  //     setUserRole(savedUser.role);
-  //     if (savedUser.role === "employee") {
-  //       setLoggedInEmployee(savedUser.employee);
-  //     }
-  //   }
-  // }, []);
+  useEffect(() => {
+    const savedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (savedUser?.role) {
+      setUserRole(savedUser.role);
+      if (savedUser.role === "employee") {
+        setLoggedInEmployee(savedUser.employee);
+      }
+    }
+  }, []);
 
   const handleLogin = (email, password) => {
   
