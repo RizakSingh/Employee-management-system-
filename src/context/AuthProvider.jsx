@@ -1,18 +1,23 @@
-import React, { createContext, useState, useEffect } from 'react';
-import { getLocalStorage } from '../utils/LocalStorage';
+import React, { createContext, useEffect, useState } from "react";
+import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [userData, setUserData] = useState({ employees: [], admin: [] });
+  const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
-    const { employees, admin } = getLocalStorage();
-    setUserData({ employees, admin });
+    // ✅ Initialize data only once
+    if (!localStorage.getItem("employees")) {
+      setLocalStorage();
+    }
+
+    const { employees } = getLocalStorage();
+    setEmployees(employees || []);
   }, []);
 
   return (
-    <AuthContext.Provider value={userData}>
+    <AuthContext.Provider value={{ employees }}>
       {children}
     </AuthContext.Provider>
   );
