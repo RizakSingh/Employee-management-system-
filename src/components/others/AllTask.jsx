@@ -8,47 +8,9 @@ const AllTask = () => {
 <h3>Make a Ui Desing</h3>
 <h5>Status</h5>
 </div>
-<div className='bg-gradient-to-b  from-black to-green-800 py-2 px-4 mt-3 mb-2 rounded-lg'>
-    <h2>SArthak</h2>
-<h3>Make a Ui Desing</h3>
-<h5>Status</h5>
+
 </div>
-<div className='bg-gradient-to-b  from-black to-green-800 py-2 px-4 mt-3 mb-2 rounded-lg'>
-    <h2>SArthak</h2>
-<h3>Make a Ui Desing</h3>
-<h5>Status</h5>
-</div>
-<div className='bg-gradient-to-b  from-black to-green-800 py-2 px-4 mt-3 mb-2 rounded-lg'>
-    <h2>SArthak</h2>
-<h3>Make a Ui Desing</h3>
-<h5>Status</h5>
-</div>
-<div className='bg-gradient-to-b  from-black to-green-800 py-2 px-4 mt-3 mb-2 rounded-lg'>
-    <h2>SArthak</h2>
-<h3>Make a Ui Desing</h3>
-<h5>Status</h5>
-</div>
-<div className='bg-gradient-to-b  from-black to-green-800 py-2 px-4 mt-3 mb-2 rounded-lg'>
-    <h2>SArthak</h2>
-<h3>Make a Ui Desing</h3>
-<h5>Status</h5>
-</div>
-<div className='bg-gradient-to-b  from-black to-green-800 py-2 px-4 mt-3 mb-2 rounded-lg'>
-    <h2>SArthak</h2>
-<h3>Make a Ui Desing</h3>
-<h5>Status</h5>
-</div>
-<div className='bg-gradient-to-b  from-black to-green-800 py-2 px-4 mt-3 mb-2 rounded-lg'>
-    <h2>SArthak</h2>
-<h3>Make a Ui Desing</h3>
-<h5>Status</h5>
-</div>
-<div className='bg-gradient-to-b  from-black to-green-800 py-2 px-4 mt-3 mb-2 rounded-lg'>
-    <h2>SArthak</h2>
-<h3>Make a Ui Desing</h3>
-<h5>Status</h5>
-</div>
-</div>
+
 )
 }
 
