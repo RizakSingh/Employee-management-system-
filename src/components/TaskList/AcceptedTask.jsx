@@ -6,7 +6,7 @@ const AcceptedTask = ({ tasks, setTasks }) => {
   const acceptedTasks = tasks.filter(
     (task) => task.status === "accepted"
   );
-
+  if (acceptedTasks.length === 0) return null;
   const updateStatus = async (id, status) => {
     const res = await api.patch(`/tasks/${id}/status`, { status });
 
@@ -15,12 +15,12 @@ const AcceptedTask = ({ tasks, setTasks }) => {
     );
   };
 
-  if (acceptedTasks.length === 0) return null;
 
   return (
     <>
-      <h2 className="text-white text-xl font-semibold">Accepted Tasks</h2>
-      <div className="flex gap-5">
+    <section>
+      <h2 className="text-white text-xl font-semibold mb-4">Accepted Tasks</h2>
+      <div className="flex gap-5 overflow-x-auto">
         {acceptedTasks.map((task) => (
           <TaskCard
             key={task._id}
@@ -44,6 +44,7 @@ const AcceptedTask = ({ tasks, setTasks }) => {
           </TaskCard>
         ))}
       </div>
+      </section>
     </>
   );
 };

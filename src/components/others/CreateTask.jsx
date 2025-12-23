@@ -154,8 +154,7 @@ const CreateTask = () => {
         </form>
       </div>
 
-      {/* Optional */}
-      <AllTask />
+    
     </>
   );
 };

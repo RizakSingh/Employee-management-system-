@@ -26,7 +26,7 @@ const App = () => {
     return <AdminDashBoard />;
   }
 
-  return <EmployeeDashboard data={user} />;
+  return <EmployeeDashboard data={user}  />;
 };
 
 export default App;

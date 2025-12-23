@@ -9,11 +9,11 @@ const CompleteTask = ({ tasks }) => {
   if (completedTasks.length === 0) return null;
 
   return (
-    <>
-      <h2 className="text-white text-xl font-semibold">
+    <><section>
+      <h2 className="text-white text-xl font-semibold mb-4">
         Completed Tasks
       </h2>
-      <div className="flex gap-5 ">
+      <div className="flex gap-5 overflow-x-auto ">
         {completedTasks.map((task) => (
           <TaskCard
             key={task._id}
@@ -22,6 +22,7 @@ const CompleteTask = ({ tasks }) => {
           />
         ))}
       </div>
+      </section>
     </>
   );
 };

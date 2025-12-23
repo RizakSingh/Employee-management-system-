@@ -1,17 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import api from "../../api/axios";
 
 const AllTask = () => {
-    return(
-<div id='tasklist' className='bg-gray-850/50 p-3 w-[96.5%] m-7 mt-6 rounded-lg h-55 overflow-auto ' >
-<div className='bg-gradient-to-b  from-black to-green-800 py-2 px-4 mt-3 mb-2 rounded-lg'>
-    <h2>SArthak</h2>
-<h3>Make a Ui Desing</h3>
-<h5>Status</h5>
-</div>
+  const [tasks, setTasks] = useState([]);
 
-</div>
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const res = await api.get("/admin/tasks");
+      setTasks(res.data);
+    };
+    fetchTasks();
+  }, []);
 
-)
-}
+  return (
+    <div className="mt-10 px-7">
+      <h2 className="text-2xl font-semibold text-white mb-6">
+        All Tasks (Admin View)
+      </h2>
 
-export default AllTask
+      <div className="space-y-4">
+        {tasks.map((task) => (
+          <div
+            key={task._id}
+            className="bg-gradient-to-b from-black to-blue-900 text-white p-4 rounded-lg shadow"
+          >
+            <div className="flex justify-between">
+              <h3 className="text-lg font-semibold">{task.title}</h3>
+              <span className="text-sm bg-gray-700 px-3 py-1 rounded">
+                {task.status.toUpperCase()}
+              </span>
+            </div>
+
+            <p className="text-sm mt-1">{task.description}</p>
+
+            <div className="flex justify-between mt-3 text-sm">
+              <span>
+                Assigned to:{" "}
+                <strong>{task.assignedTo?.name || "N/A"}</strong>
+              </span>
+              <span>Priority: {task.priority}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default AllTask;

@@ -7,17 +7,11 @@ import api from "../../api/axios"
 const EmployeeDashboard = ({data}) => {
      const [tasks, setTasks] = useState([]);
 
-     
-  useEffect(() => {
+       useEffect(() => {
     const fetchTasks = async () => {
-      try {
-        const res = await api.get("/tasks/my");
-        setTasks(res.data);
-      } catch (err) {
-        console.error("Failed to load tasks", err);
-      }
+      const res = await api.get("/tasks/my");
+      setTasks(res.data);
     };
-
     fetchTasks();
   }, []);
   return (
