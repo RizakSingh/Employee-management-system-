@@ -4,6 +4,7 @@ require("dotenv").config();
 const authRoutes = require("./routes/authRoutes");
 const connectDB = require("./config/db");
 const adminRoutes = require("./routes/adminRoutes");
+const taskRoutes = require("./routes/taskRoutes");
 
 
 
@@ -21,6 +22,8 @@ connectDB();
 
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/tasks", taskRoutes);
+
 
 
 const { protect, adminOnly } = require("./middleware/authMiddleware");

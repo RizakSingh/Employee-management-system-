@@ -19,7 +19,7 @@ const CreateEmployee = () => {
     setLoading(true);
 
     try {
-      await api.post("/api/admin/create-employee", form);
+      await api.post("/admin/create-employee", form);
       alert("Employee created successfully");
       setForm({ name: "", email: "", password: "" });
     } catch (err) {
