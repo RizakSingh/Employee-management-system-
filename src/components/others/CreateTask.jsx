@@ -37,13 +37,7 @@ const CreateTask = () => {
     e.preventDefault();
 
     try {
-      await api.post("/tasks/create", {
-        title: form.title,
-        description: form.description,
-        dueDate: form.dueDate,
-        assignedTo: form.assignedTo,
-        category: form.category,
-      });
+      await api.post("/tasks/create",form);
 
       alert("Task created successfully");
 
@@ -115,6 +109,19 @@ const CreateTask = () => {
               ))}
             </select>
           </div>
+           <div>
+          <label className="block text-gray-300 mb-2">Priority</label>
+          <select
+            name="priority"
+            value={form.priority}
+            onChange={handleChange}
+            className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700"
+          >
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
 
           {/* Category */}
           <div>

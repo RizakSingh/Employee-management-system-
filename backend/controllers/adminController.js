@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
+const Task = require("../models/task");
 
 // CREATE EMPLOYEE (ADMIN ONLY)
 exports.createEmployee = async (req, res) => {
@@ -42,6 +43,27 @@ exports.getEmployees = async (req, res) => {
       "_id name email"
     );
     res.json(employees);
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+exports.getAllTasks = async (req, res) => {
+  try {
+    const tasks = await Task.find()
+      .populate("assignedTo", "name email")
+      .populate("assignedBy", "name email")
+      .sort({ createdAt: -1 });
+
+    res.json(tasks);
+  } catch (error) {
+    console.error("GET ALL TASKS ERROR", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+exports.deleteTask = async (req, res) => {
+  try {
+    await Task.findByIdAndDelete(req.params.id);
+    res.json({ message: "Task deleted" });
   } catch (error) {
     res.status(500).json({ message: "Server error" });
   }
