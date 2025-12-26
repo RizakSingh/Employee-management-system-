@@ -42,18 +42,5 @@ exports.login = async (req, res) => {
 }
 
 };
-exports.registerAdmin = async (req, res) => {
-  const { name, email, password } = req.body;
 
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  const admin = await User.create({
-    name,
-    email,
-    password: hashedPassword,
-    role: "admin",
-  });
-
-  res.status(201).json(admin);
-};
 
