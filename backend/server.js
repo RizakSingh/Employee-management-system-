@@ -11,7 +11,12 @@ const taskRoutes = require("./routes/taskRoutes");
 const app = express();
 
 // middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173", // frontend dev URL
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
