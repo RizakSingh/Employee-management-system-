@@ -14,7 +14,7 @@ const app = express();
 app.use(
   cors({
     origin: "http://localhost:5173", // frontend dev URL
-    credentials: true,
+    credentials: false,
   })
 );
 app.use(express.json());
