@@ -16,7 +16,19 @@ The system provides separate dashboards for **Admin** and **Employees**, enablin
 - **GitHub Repository**  
   🔗 https://github.com/RizakSingh/Employee-management-system-
 
+
+## 🔐 Demo Login Credentials
+
+To help reviewers test the application, a demo admin account is provided:
+
+**Admin**
+- Email: admin@example.com
+- Password: Admin123
+
+> ⚠️ These credentials are for demonstration purposes only.
+> Sensitive actions are restricted and data may be reset periodically.
 ---
+
 
 ## 🚀 Features
 
