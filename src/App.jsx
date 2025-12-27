@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import Login from "./components/auth/Login";
 import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard";
-import AdminDashBoard from "./components/Dashboard/AdminDashBoard";
+import AdminDashBoard from "./components/Dashboard/AdminDashboard";
+
 import { AuthContext } from "./context/AuthProvider";
 
 const App = () => {
