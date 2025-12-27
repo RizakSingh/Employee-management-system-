@@ -16,7 +16,6 @@ const Login = () => {
       alert("Invalid credentials");
     }
   };
-
   return (
     <div className="flex h-screen">
       {/* Left Side */}
