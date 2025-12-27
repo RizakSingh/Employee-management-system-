@@ -1,16 +1,71 @@
-# React + Vite
+# 🏢 Employee Management System (EMS)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **full-stack Employee Management System** built using the **MERN stack** with **role-based authentication**.  
+The system provides separate dashboards for **Admin** and **Employees**, enabling task assignment, tracking, and management in a real-world workflow.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo
 
-## React Compiler
+- **Frontend (Vercel)**  
+  🔗 https://employee-management-system-fagb.vercel.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Backend API (Render)**  
+  🔗 https://employee-management-system-tpf9.onrender.com
 
-## Expanding the ESLint configuration
+- **GitHub Repository**  
+  🔗 https://github.com/RizakSingh/Employee-management-system-
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Features
+
+### 🔐 Authentication & Authorization
+- JWT-based authentication
+- Role-based access control (`admin`, `employee`)
+- Protected routes
+- Secure password hashing
+
+### 👨‍💼 Admin Dashboard
+- Create employees
+- Assign tasks to employees
+- View all tasks
+- Manage employee workload
+- Centralized admin panel
+
+### 👩‍💻 Employee Dashboard
+- View assigned tasks
+- Track personal tasks
+- Task statistics overview
+
+### 🎨 UI & UX
+- Responsive design using **Tailwind CSS**
+- Clean dashboard layout
+- Modern gradient-based UI
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- React (Vite)
+- Tailwind CSS
+- Axios
+- Context API
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- JSON Web Tokens (JWT)
+- bcrypt / bcryptjs
+
+### Deployment
+- **Frontend:** Vercel
+- **Backend:** Render
+- **Database:** MongoDB Atlas
+
+---
+
+## 📂 Project Structure
+
