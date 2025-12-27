@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Login from "./components/auth/Login";
 import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard";
-import AdminDashBoard from "./components/Dashboard/AdminDashboard";
+import AdminDashboard from "./components/Dashboard/AdminDashboard";
 
 import { AuthContext } from "./context/AuthProvider";
 
@@ -24,7 +24,7 @@ const App = () => {
 
   // role-based rendering
   if (user.role === "admin") {
-    return <AdminDashBoard />;
+    return <AdminDashboard />;
   }
 
   return <EmployeeDashboard data={user}  />;

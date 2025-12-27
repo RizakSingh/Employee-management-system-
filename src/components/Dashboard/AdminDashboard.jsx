@@ -5,7 +5,7 @@ import CreateTask from "../others/CreateTask";
 import AllTask from "../others/AllTask";
 import Footer from "../others/Footer";
 
-const AdminDashBoard = () => {
+const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("task");
 
   return (
@@ -54,4 +54,4 @@ const TabButton = ({ label, active, onClick }) => (
   </button>
 );
 
-export default AdminDashBoard;
+export default AdminDashboard;
