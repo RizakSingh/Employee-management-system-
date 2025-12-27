@@ -13,7 +13,7 @@ const app = express();
 // middleware
 app.use(
   cors({
-    origin: "http://localhost:5173", // frontend dev URL
+    origin: ["http://localhost:5173","https://employee-management-system-fagb.vercel.app"],
     credentials: false,
   })
 );
