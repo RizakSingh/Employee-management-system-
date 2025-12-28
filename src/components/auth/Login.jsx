@@ -8,14 +8,16 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    try {
-      await login(email, password);
-    } catch (err) {
-      alert("Invalid credentials");
-    }
-  };
+
+const submitHandler = async (e) => {
+  e.preventDefault();
+  try {
+    
+    await login(email, password);
+  } catch (err) {
+    alert("Invalid credentials");
+  } 
+};
   return (
     <div className="flex h-screen">
       {/* Left Side */}
@@ -59,12 +61,13 @@ const Login = () => {
               />
             </div>
 
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-gray-900 to-black py-2 rounded-lg font-semibold"
-            >
-              Sign In
-            </button>
+         <button
+  type="submit"
+  disabled={loading}
+  className="w-full bg-gradient-to-r from-gray-900 to-black py-2 rounded-lg font-semibold"
+>
+  {loading ? "Waking server..." : "Sign In"}
+</button>
           </form>
         </div>
       </div>

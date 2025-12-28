@@ -6,18 +6,24 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [authLoading, setAuthLoading] = useState(false);
 
-  // 🔁 persist login on refresh
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    const token = localStorage.getItem("token");
+  fetch(import.meta.env.VITE_API_BASE_URL + "/api/health")
+    .catch(() => {});
 
-    if (storedUser && token) {
-      setUser(JSON.parse(storedUser));
-    }
+  const storedUser = localStorage.getItem("user");
+  const token = localStorage.getItem("token");
 
-    setLoading(false);
-  }, []);
+  if (storedUser && token) {
+    setUser(JSON.parse(storedUser));
+
+    // ✅ restore token after refresh
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  }
+
+  setLoading(false);
+}, []);
 
   // 🔐 LOGIN (backend)
  const login = async (email, password) => {

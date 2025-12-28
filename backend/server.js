@@ -37,6 +37,9 @@ const { trusted } = require("mongoose");
 
 
 // test route
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
 app.get("/", (req, res) => {
   res.send("API running...");
 });
