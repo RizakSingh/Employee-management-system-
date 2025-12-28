@@ -3,21 +3,20 @@ import loginImage from "../../assets/login-image3.jpg";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  const { login, authLoading } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      await login(email, password);
+    } catch (err) {
+      alert("Invalid credentials");
+    }
+  };
 
-const submitHandler = async (e) => {
-  e.preventDefault();
-  try {
-    
-    await login(email, password);
-  } catch (err) {
-    alert("Invalid credentials");
-  } 
-};
   return (
     <div className="flex h-screen">
       {/* Left Side */}
@@ -38,6 +37,7 @@ const submitHandler = async (e) => {
       <div className="flex w-full md:w-1/2 justify-center items-center bg-gradient-to-b from-black to-blue-900 text-white">
         <div className="w-80">
           <h2 className="text-3xl font-bold mb-6">Welcome To RizEmp</h2>
+
           <form onSubmit={submitHandler} className="space-y-4">
             <div>
               <label className="block text-sm mb-1">Email address</label>
@@ -61,13 +61,13 @@ const submitHandler = async (e) => {
               />
             </div>
 
-         <button
-  type="submit"
-  disabled={loading}
-  className="w-full bg-gradient-to-r from-gray-900 to-black py-2 rounded-lg font-semibold"
->
-  {loading ? "Waking server..." : "Sign In"}
-</button>
+            <button
+              type="submit"
+              disabled={authLoading}
+              className="w-full bg-gradient-to-r from-gray-900 to-black py-2 rounded-lg font-semibold disabled:opacity-60"
+            >
+              {authLoading ? "Waking server..." : "Sign In"}
+            </button>
           </form>
         </div>
       </div>

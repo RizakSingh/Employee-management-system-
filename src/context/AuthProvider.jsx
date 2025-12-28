@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
   const [authLoading, setAuthLoading] = useState(false);
 
   useEffect(() => {
-  fetch(import.meta.env.VITE_API_BASE_URL + "/api/health")
+  fetch(import.meta.env.VITE_API_BASE_URL + "/health")
     .catch(() => {});
 
   const storedUser = localStorage.getItem("user");
@@ -27,16 +27,30 @@ const AuthProvider = ({ children }) => {
 
   // 🔐 LOGIN (backend)
  const login = async (email, password) => {
-  const res = await api.post("/auth/login", {
-    email,
-    password,
-  });
+  try {
+    setAuthLoading(true);
 
-  localStorage.setItem("token", res.data.token);
-  localStorage.setItem("user", JSON.stringify(res.data.user));
+    const res = await api.post("/auth/login", {
+      email,
+      password,
+    });
 
-  setUser(res.data.user);
+    // store auth data
+    localStorage.setItem("token", res.data.token);
+    localStorage.setItem("user", JSON.stringify(res.data.user));
+
+    // set token globally for axios
+    api.defaults.headers.common["Authorization"] =
+      `Bearer ${res.data.token}`;
+
+    setUser(res.data.user);
+  } catch (error) {
+    throw error; // Login.jsx catch karega
+  } finally {
+    setAuthLoading(false);
+  }
 };
+
 
   // 🚪 LOGOUT
   const logout = () => {

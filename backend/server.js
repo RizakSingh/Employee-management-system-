@@ -13,7 +13,10 @@ const app = express();
 // middleware
 app.use(
   cors({
-    origin: ["http://localhost:5173","https://employee-management-system-fagb.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://employee-management-system-drab-seven.vercel.app",
+    ],
     credentials: false,
   })
 );
